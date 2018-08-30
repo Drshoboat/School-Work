@@ -5,35 +5,46 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 public class SyntaxChecker {
   static Stack<String> openSyntax = new Stack<String>();
-  public static void main(String args[])throws FileNotFoundException{
-    fillStack();
-}
+  static Stack<String> closeSyntax = new Stack<String>();
+
     public static void fillStack() throws FileNotFoundException{
       // Reads in file
       File f = new File("syntaxChecker.dat");
       Scanner file = new Scanner(f);
-      String syntax = file.nextLine();
-      file.nextLine();
-      String[] arrSyn = syntax.split("");
-      System.out.println(Arrays.toString(arrSyn));//Trying to debug
-      boolean noErrors = true;
-      while(noErrors){
-      for(int i =0; i<arrSyn.length; i++) {
-        if(arrSyn[i].equals("{") || arrSyn[i].equals("(") || arrSyn[i].equals("<") || arrSyn[i].equals("[")) {//if char == opening symbol
-          openSyntax.push(arrSyn[i]);
-        } else if(arrSyn[i].equals("}") || arrSyn[i].equals(")") || arrSyn[i].equals(">") || arrSyn[i].equals("]")) {//if char == closing symbol
-            if(openSyntax.size() > 0) {
-                String test = openSyntax.pop();
-                if(test.equals(arrSyn[i])) {// check but do nothing if both are equal
 
-                } else{
+      int lines = file.nextInt();
+      file.nextLine();
+
+      String open = "{,[,(,<";
+      String close = "},],),>";
+
+      for(int i = 0; i < lines; i++) {
+        String syntax = file.nextLine();
+        String[] arrSyn = syntax.split("");
+        System.out.println(Arrays.toString(arrSyn));
+        System.out.println(syntax);
+        boolean noErrors = true;
+        while(noErrors){
+        for(int j =0; j < arrSyn.length; j++) {
+          if(arrSyn[j].equals("{") || arrSyn[j].equals("(") || arrSyn[j].equals("<") || arrSyn[j].equals("[")) {//if char == opening symbol
+
+            openSyntax.push(arrSyn[j]);
+            System.out.println(openSyntax);
+          } else if(arrSyn[j].equals("}") || arrSyn[j].equals(")") || arrSyn[j].equals(">") || arrSyn[j].equals("]")) {//if char == closing symbol
+              if(openSyntax.size() > 0) {
+                  String test = openSyntax.pop();
+                  if(test.equals(arrSyn[j])) {// check but do nothjng if both are equal
+
+                  } else {
                     noErrors = false;
-                    //System.out.println(noErrors);
-                }// else end method
-            }
+
+                  }
+              }
+          }
+        }
         }
       }
-      }
+
   }
 
 }
