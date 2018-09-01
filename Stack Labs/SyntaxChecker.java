@@ -22,15 +22,14 @@ public class SyntaxChecker {
         String syntax = file.nextLine();
         String[] arrSyn = syntax.split("");
         System.out.println(Arrays.toString(arrSyn));
-        System.out.println(syntax);
+      //  System.out.println(syntax);
         boolean noErrors = true;
         while(noErrors){
         for(int j =0; j < arrSyn.length; j++) {
-          if(arrSyn[j].equals("{") || arrSyn[j].equals("(") || arrSyn[j].equals("<") || arrSyn[j].equals("[")) {//if char == opening symbol
-
+          if(arrSyn[j].indexOf(open) >= 0) {//if char == opening symbol
             openSyntax.push(arrSyn[j]);
             System.out.println(openSyntax);
-          } else if(arrSyn[j].equals("}") || arrSyn[j].equals(")") || arrSyn[j].equals(">") || arrSyn[j].equals("]")) {//if char == closing symbol
+          } else if(arrSyn[j].indexOf(close) >= 0) {//if char == closing symbol
               if(openSyntax.size() > 0) {
                   String test = openSyntax.pop();
                   if(test.equals(arrSyn[j])) {// check but do nothjng if both are equal
