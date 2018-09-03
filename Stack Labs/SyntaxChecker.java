@@ -3,9 +3,9 @@ import java.io.File;
 import java.util.Stack;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.*;
 public class SyntaxChecker {
   static Stack<String> openSyntax = new Stack<String>();
-  static Stack<String> closeSyntax = new Stack<String>();
 
     public static void fillStack() throws FileNotFoundException{
       // Reads in file
@@ -22,23 +22,13 @@ public class SyntaxChecker {
         String syntax = file.nextLine();
         String[] arrSyn = syntax.split("");
         System.out.println(Arrays.toString(arrSyn));
-      //  System.out.println(syntax);
         boolean noErrors = true;
         while(noErrors){
         for(int j =0; j < arrSyn.length; j++) {
-          if(arrSyn[j].indexOf(open) >= 0) {//if char == opening symbol
+          if(arrSyn[j].indexOf(open) > -1) {//if char == opening symbol
+
             openSyntax.push(arrSyn[j]);
             System.out.println(openSyntax);
-          } else if(arrSyn[j].indexOf(close) >= 0) {//if char == closing symbol
-              if(openSyntax.size() > 0) {
-                  String test = openSyntax.pop();
-                  if(test.equals(arrSyn[j])) {// check but do nothjng if both are equal
-
-                  } else {
-                    noErrors = false;
-
-                  }
-              }
           }
         }
         }
