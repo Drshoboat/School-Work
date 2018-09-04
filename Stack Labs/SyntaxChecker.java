@@ -21,7 +21,7 @@ public class SyntaxChecker {
       for(int i = 0; i < lines; i++) {
         String syntax = file.nextLine();
         String[] arrSyn = syntax.split("");
-        System.out.println(Arrays.toString(arrSyn));
+      //  System.out.println(Arrays.toString(arrSyn));
         boolean noErrors = true;
         while(noErrors){
         for(int j =0; j < arrSyn.length; j++) {
