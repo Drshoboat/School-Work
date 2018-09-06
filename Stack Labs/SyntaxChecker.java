@@ -13,13 +13,13 @@ public class SyntaxChecker {
       Scanner file = new Scanner(f);
 
       int lines = file.nextInt();
-      System.out.println(lines);
+      //System.out.println(lines);
       file.nextLine();
 
       String open  = "{[(<";
       String close = "}])>";
       boolean noErrors = true;
-      for(int i = 0; i < lines; i++) {
+      for(int i = 1; i < lines; i++) {
         //System.out.println("Start for" + i);
         String syntax = file.nextLine();
         String[] arrSyn = syntax.split("");
@@ -31,23 +31,23 @@ public class SyntaxChecker {
 
             openSyntax.push(arrSyn[j]);
           //  System.out.println(openSyntax);
-        } else if(close.indexOf(arrSyn[j]) > -1) {
+        } else if(close.indexOf(arrSyn[j]) > -1) {// if char == closing symbol
             if(openSyntax.size() > 0){
-
               if(open.indexOf(openSyntax.pop()) != (close.indexOf(arrSyn[j]))){
                 noErrors = false;
                 System.out.println(Arrays.toString(arrSyn) + "is incorrect");
+                //System.out.println(openSyntax);
               }
             }
           }
           if(openSyntax.size() == 0 && noErrors == true) {
             System.out.println(Arrays.toString(arrSyn) + "is correct");
+            //System.out.println(openSyntax);
             noErrors = false;
           }
         }
         noErrors = false;
         System.out.println(Arrays.toString(arrSyn) + "is incorrect");
-
         }
         //System.out.println("Ended for" + i);
       }
