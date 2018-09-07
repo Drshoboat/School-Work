@@ -1,9 +1,9 @@
 8
-[{}]
-[
-[{<()>}]
-{<html[value=4]*(12)>{$x}}
-[one]<two>{three}(four)
-car(cdr(a)(b)))
-car(cdr(a)(b))
-(abc(*def)
+[{}]//correct
+[//incorrect
+[{<()>}]//correct
+{<html[value=4]*(12)>{$x}}//correct
+[one]<two>{three}(four)//correct
+car(cdr(a)(b)))//incorrect
+car(cdr(a)(b))//correct
+(abc(*def)//incorrect
