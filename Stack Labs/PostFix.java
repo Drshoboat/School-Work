@@ -2,29 +2,35 @@ import java.util.Stack;
 import java.util.*;
 import java.lang.NumberFormatException;
 public class PostFix {
-  Stack<Integer> nums = new Stack<Integer>();
-  public int solvePost(String[] arr) throws NumberFormatException{
+  Stack<Float> nums = new Stack<Float>();
+  public float solvePost(String[] arr) throws NumberFormatException{
     String numbers = "0123456789";
-    int result = 0;
-    int solved;
-    for(int i = 0; i < arr.length; i++) {
+    float result = 0;
+    for(int i = -1; i < arr.length; i++) {
+
       if(nums.size() > 0){
+      //  float num1 = nums.pop();
+        //float num2 = nums.pop();
       if(numbers.indexOf(arr[i]) > -1) {
-        nums.push(Integer.parseInt(arr[i]));
+        nums.push(Float.parseFloat(arr[i]));
+      //  System.out.println(nums.peek());
     } else if(arr[i].equals("+")) {
         result = nums.pop() + nums.pop();
-        nums.push(result);
+        System.out.println(result);
+        //nums.push(result);
     } else if(arr[i].equals("-")){
         result = nums.pop() - nums.pop();
+        //nums.push(result);
     } else if(arr[i].equals("*")) {
         result = nums.pop() * nums.pop();
+        //nums.push(result);
     } else if(arr[i].equals("/")) {
         result = nums.pop() / nums.pop();
+        //nums.push(result);
     }
+  }
+    nums.push(result);
     }
-
-    }
-    solved = nums.pop();
-    return solved;
+    return nums.pop();
   }
 }

@@ -7,11 +7,12 @@ public class PostfixRunner {
       String[] fourth = new String[] {"3", "3", "+", "7", "*", "9", "2", "/","+"};
       String[] fifth = new String[] {"9", "3", "/", "2", "*", "7", "9", "*", "+", "4", "–"};
       String[] sixth = new String[] {"5", "5", "+", "2", "*", "4", "/","9", "+"};
-      bob.solvePost(first);
-      bob.solvePost(second);
-      bob.solvePost(third);
-      bob.solvePost(fourth);
-      bob.solvePost(fifth);
-      bob.solvePost(sixth);
+      System.out.println(bob.solvePost(first));
+    /*  System.out.println(bob.solvePost(second));
+      System.out.println(bob.solvePost(third));
+      System.out.println(bob.solvePost(fourth));
+      System.out.println(bob.solvePost(fifth));
+      System.out.println(bob.solvePost(sixth));
+      */
     }
 }
