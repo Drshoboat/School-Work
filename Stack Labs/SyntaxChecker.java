@@ -21,10 +21,13 @@ public class SyntaxChecker {
       boolean noErrors = true;
       for(int i = 1; i < lines; i++) {
         //System.out.println("Start for" + i);
+
         String syntax = file.nextLine();
         String[] arrSyn = syntax.split("");
       //  System.out.println(Arrays.toString(arrSyn));
         noErrors = true;
+        openSyntax.clear();
+        //System.out.println(openSyntax);
         while(noErrors){
         for(int j =0; j < arrSyn.length; j++) {
           if(open.indexOf(arrSyn[j]) > -1) {//if char == opening symbol
@@ -37,17 +40,19 @@ public class SyntaxChecker {
                 noErrors = false;
                 System.out.println(Arrays.toString(arrSyn) + "is incorrect");
                 //System.out.println(openSyntax);
+
               }
             }
           }
           if(openSyntax.size() == 0 && noErrors == true) {
+
             System.out.println(Arrays.toString(arrSyn) + "is correct");
             //System.out.println(openSyntax);
             noErrors = false;
           }
         }
         noErrors = false;
-        System.out.println(Arrays.toString(arrSyn) + "is incorrect");
+        //System.out.println(Arrays.toString(arrSyn) + "is incorrect");
         }
         //System.out.println("Ended for" + i);
       }
