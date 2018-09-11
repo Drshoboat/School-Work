@@ -16,6 +16,21 @@ public class Skeleton implements Monster
       size = skelSize;
   }
 	//add code to implement the Monster interface
+    public int getHowBig() {
+      return size;
+    }
+    public String getName() {
+      return name;
+    }
+    public boolean isBigger(Monster other) {
+
+    }
+    public boolean isSmaller(Monster other) {
+
+    }
+    public boolean namesTheSame(Monster other) {
+
+    }
 
 	//add a toString
 }
