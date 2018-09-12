@@ -19,7 +19,7 @@ public class MonsterRunner
 
 
 		//instantiate monster one
-		Skeleton bob = new Skeleton(monsterOne, monsterOneSize);
+
 
 		//ask for name and size
 		out.println("Enter 2nd monster's name : ");
@@ -27,21 +27,20 @@ public class MonsterRunner
 		out.println("Enter 2nd monster's size : ");
 		int monsterTwoSize = keyboard.nextInt();
 		//instantiate monster two
-		Skeleton tom = new Skeleton(monsterTwo, monsterTwoSize);
 
-		out.println("Monster 1 - " + bob.toString());
-		out.println("Monster 2 - " + tom.toString());
+		out.println("Monster 1 - " + monsterOne + " " + monsterOneSize);
+		out.println("Monster 2 - " + monsterTwo +  " " + monsterTwoSize);
 
 
-		if(bob.getHowBig() > tom.getHowBig()) {
+		if(monsterOneSize > monsterTwoSize) {
 			out.println("Monster one is bigger than Monster two.");
 		} else if( monsterOneSize < monsterTwoSize) {
 			out.println("Monster one is smaller than Monster two");
 		}
-		if(bob.namesTheSame(tom)) {
-			out.println("Monster one does have the same name as Monster two.");
+		if(monsterOne.compareTo(monsterTwo) != 0) {
+			out.println("Monster one does not have the same name as Monster two.");
 		} else{
-			out.println("Monster one does not have the same name as Monster two");
+			out.println("Monster one does have the same name as Monster two");
 		}
 	}
 }

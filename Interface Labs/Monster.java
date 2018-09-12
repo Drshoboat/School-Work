@@ -4,7 +4,7 @@
 
 import static java.lang.System.*;
 
-public interface Monster
+public interface Monster extends Comparable
 {
 	public int getHowBig();
 	public String getName();
