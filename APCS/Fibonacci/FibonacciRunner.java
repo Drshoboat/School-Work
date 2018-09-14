@@ -7,7 +7,8 @@ public class FibonacciRunner
 	public static void main(String args[])
 	{
 		Fibonacci fib = new Fibonacci(50);
-		System.out.println(fib.getFibo(1));
+		System.out.println(fib.getFibo(10));
+		/*System.out.println(fib.getFibo(1));
 		System.out.println(fib.getFibo(2));
 		System.out.println(fib.getFibo(3));
 		System.out.println(fib.getFibo(4));
@@ -24,6 +25,7 @@ public class FibonacciRunner
 		fib.setFibo(2);
 		System.out.println(fib.getFibo(1));
 		System.out.println(fib.getFibo(2));
-		System.out.println(fib.getFibo(11));	
+		System.out.println(fib.getFibo(11));
+		*/
    }
 }
