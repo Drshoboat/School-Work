@@ -5,7 +5,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.*;
 import static java.lang.System.*;
 
 public class WordRunner
@@ -16,6 +17,17 @@ public class WordRunner
 
 		int size = file.nextInt();
 		file.nextLine();
+
+		ArrayList<Word> wrd = new ArrayList<Word>();
+
+		for(int i = 0; i < size; i++) {
+				wrd.add(new Word(file.nextLine()));
+		}
+
+		Collections.sort(wrd);
+
+		out.println(wrd);
+
 
 		//write a string Array
 
