@@ -20,11 +20,11 @@ public class IntQueue
 	private int numInts;
 
 	//option 2
-	private ArrayList<Integer> listOfInts;
+	private ArrayList<Integer> listOfInts = new ArrayList<Integer>();
 
 	public IntQueue()
 	{
-		ArrayList <Integer> arrlist = listOfInts.clone();
+
 	}
 
 	public void add(int item)
@@ -34,22 +34,22 @@ public class IntQueue
 
 	public int remove()
 	{
-		arrlist.remove(0);
+		return listOfInts.remove(0);
 
 	}
 
 	public boolean isEmpty()
 	{
-		if(listOfInts.isEmpty())
+		if(listOfInts.size() > 0)
 		{
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public int peek()
 	{
-		listofInts.get(0);
+		return listOfInts.get(0);
 
 	}
 
