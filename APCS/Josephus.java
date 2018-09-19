@@ -5,18 +5,18 @@ public class Josephus
 {
    public static void main(String[] args)
    {
-   System.out.println(survivor(5,2));
-   
+   System.out.println(survivor(41,2));
+
    }
    public static int survivor(int p, int f)// p = # of people f = kill factor
    {
       boolean people[] = new boolean[p];
-      
+
       for(int i = 0; i<people.length; i++)
       {
          //if true p = alive
          people[i] = true;
-      
+
       }
       int living = p; // counter of people living
       int count = 0; // count off of who will be the next to defeated
@@ -25,30 +25,30 @@ public class Josephus
      {
       if(people[spot]) // if person is alive
       {
-         count ++; // count off   
+         count ++; // count off
          if(count % f == 0)
          {
            people[spot] = false; // person now defeated
            living --; // decrease living
-         
+
          }
        }
          if(spot == people.length -1)
             spot = 0;
-         else 
+         else
             spot ++;
-     
+
      }   //find remaining living person
         for(int i =0; i< people.length; i++)
-        
+
         {
          if(people[i])
             return (i+1); //return the spot of last living
-        
+
         }
-      return -1 ;// error 
+      return -1 ;// error
    }
-   
+
 
 
 
