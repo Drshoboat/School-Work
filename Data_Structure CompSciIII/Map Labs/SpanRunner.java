@@ -3,6 +3,18 @@ public class SpanRunner{
     SpanishToEnglish bing = new SpanishToEnglish();
     bing.addWords();
 
-    String[]
+    File q = new File("sentences.dat");
+    Scanner scan = new Scanner(q);
+
+    scan.nextInt();
+
+    scan.nextLine();
+    String[] sentence = scan.split(" ");
+
+    for(int i = 0; i < sentence.length(); i++) {
+      scan.nextLine();
+      String[] sentence = scan.split(" ");
+    }
+    bing.translate(sentence);
   }
 }

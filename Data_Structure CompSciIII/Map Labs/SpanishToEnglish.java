@@ -21,7 +21,7 @@ public class SpanishToEnglish throws FileNotFoundException{
         translate.put(wordsnstuff[0], wordsnstuff[1]);
       }
     }
-    public String translate(String key) {
-       return translations.get(key);
+    public String translate(String[] sentence) {
+       return translations.get(sentence);
     }
 }
