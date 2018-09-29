@@ -1,27 +1,41 @@
 import java.util.Scanner;
 import java.lang.System;
-import java.io.file;
+import java.util.*;
+import java.io.File;
+import java.io.*;
 
-public class SpanishToEnglish throws FileNotFoundException{
-    Map<String,String> translations = new HashMap<String,String>();
+public class SpanishToEnglish{
+    Map<String, String> translations = new HashMap<String, String>();
     public SpanishToEnglish(){
 
     }
-    public void addWords(){
-      // reads in file
-      File f = new File("spantoeng.dat");
-      Scanner words = new Scanner(f);
+    public void addWords() throws FileNotFoundException{
+    // reads in file of words
+    File f = new File("spantoeng.dat");
+    Scanner scan = new Scanner(f);
 
-      f.nextInt();
-      //String[] wordsnstuff = words.split(" ");
 
-      for(int i = 0; i < wordsnstuff.length(); i ++) {
-        f.nextLine();
-        String[] wordsnstuff = words.split(" ");
-        translate.put(wordsnstuff[0], wordsnstuff[1]);
-      }
+    int numWords = scan.nextInt();
+    scan.nextLine();
+
+    for(int i = 0; i < numWords; i++) {
+      String word = scan.nextLine();
+      String[] words = word.split(" ");
+
+      translations.put(words[0], words[1]);
     }
-    public String translate(String[] sentence) {
-       return translations.get(sentence);
+  }
+
+  public String translate(String sentence){
+    String[] wordsNStuff = sentence.split(" ");
+    String output = "";
+    for(int i = 0; i < wordsNStuff.length; i++){
+      output += translations.get(wordsNStuff[i]) + " ";
     }
+    return output;
+  }
+
+  public String toString(){
+    return translations.toString();
+  }
 }

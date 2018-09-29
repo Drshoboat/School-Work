@@ -1,20 +1,23 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class SpanRunner{
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException{
     SpanishToEnglish bing = new SpanishToEnglish();
     bing.addWords();
 
-    File q = new File("sentences.dat");
-    Scanner scan = new Scanner(q);
 
-    scan.nextInt();
+    File f = new File("sentences.dat");
+    Scanner scan = new Scanner(f);
 
+    int numSen = scan.nextInt();
     scan.nextLine();
-    String[] sentence = scan.split(" ");
 
-    for(int i = 0; i < sentence.length(); i++) {
-      scan.nextLine();
-      String[] sentence = scan.split(" ");
+    System.out.println(bing.toString());
+
+    for(int i = 0; i < numSen; i++){
+      String sen = scan.nextLine();
+      System.out.println(bing.translate(sen));
     }
-    bing.translate(sentence);
-  }
+}
 }
