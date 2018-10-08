@@ -14,7 +14,7 @@ public class Histogram{
       String letter = file.nextLine();
       String[] letters = letter.split("");
 
-      histMap.put(letters[i], i);
+      histMap.put(i,letters[i]);
     }
   }
 
