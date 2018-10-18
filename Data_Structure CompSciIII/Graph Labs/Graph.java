@@ -1,6 +1,4 @@
 import java.util.*;
-import java.io.*;
-
 public class Graph {
   Map<String, String> graph = new TreeMap<String, String>();
 
@@ -8,17 +6,10 @@ public class Graph {
 
   }
 
-  public void addToMap() throws FileNotFoundException{
-    File file = new File("graph1.dat");
-    Scanner f = new Scanner(file);
+  public void addToMap(String points){
+      String[] point = points.split(" ");//splits data into pairs
+    //  String[] point= letter.split("");//splits pairs into idividual strings
 
-    int howManyTimes = f.nextInt();
-    f.nextLine();
-    for(int i = 0; i < howManyTimes; i++) {
-      String letters = f.nextLine();
-      String[] letter = letters.split(" ");//splits data into pairs
-      for(int j = 0; j < letter.length; j++) {
-        String[] point= letter[j].split("");//splits pairs into idividual strings
         if(graph.containsKey(point[0])) {
           graph.replace(point[0], graph.get(point[0]) + point[1]);
         } else {
@@ -31,8 +22,8 @@ public class Graph {
         if(!graph.containsKey(point[1])) {
           graph.put(point[1],point[0]);
         }
-      }
-    }
+
+
     //System.out.println(graph);
   }
 
@@ -45,15 +36,28 @@ public class Graph {
     if(!contains(first)) {
       return false;
     }
-    if(!contains(second)) {
+    if(been.contains(first)) {
       return false;
     } else {
         String[] seconds = graph.get(first).split("");
         for(int i = 0; i < seconds.length; i++) {
-          if(){
-            //work on check method, if statement
+          if(seconds[i].equals(second)){
+            return true;
+          } else {
+              been.add(first);
+              if(check(seconds[i], second, been)) {
+                return true;
+              }
+          }
+          if(been.size() == graph.size()) {
+            return false;
           }
         }
       }
+      return false;
+    }
+
+    public String toString() {
+      return "";
     }
   }
