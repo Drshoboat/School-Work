@@ -7,12 +7,15 @@ public class Graph {
   }
 
   public void addToMap(String points){
-      String[] point = points.split(" ");//splits data into pairs
-    //  String[] point= letter.split("");//splits pairs into idividual strings
+      //System.out.println(points);
+       //splits data into pairs
+       String[] point= points.split("");//splits pairs into idividual strings
 
         if(graph.containsKey(point[0])) {
           graph.replace(point[0], graph.get(point[0]) + point[1]);
-        } else {
+        }
+        if(!graph.containsKey(point[0])) {
+          //System.out.println(point.length);
           graph.put(point[0], point[1]);
         }
         if(graph.containsKey(point[1])) {
@@ -33,19 +36,24 @@ public class Graph {
 	}
 
   public boolean check(String first, String second, ArrayList<String> been) {
+    System.out.println(first + " " + second);
     if(!contains(first)) {
+      System.out.println("you shouldn't be seeing this yet bud" + first);
       return false;
     }
     if(been.contains(first)) {
+      System.out.println("you shouldn't be seeing this yet bud" + first);
       return false;
     } else {
         String[] seconds = graph.get(first).split("");
         for(int i = 0; i < seconds.length; i++) {
           if(seconds[i].equals(second)){
+            System.out.println("you did it");
             return true;
           } else {
               been.add(first);
               if(check(seconds[i], second, been)) {
+                System.out.println("you did it");
                 return true;
               }
           }
@@ -58,6 +66,6 @@ public class Graph {
     }
 
     public String toString() {
-      return "";
+      return " ";
     }
   }
