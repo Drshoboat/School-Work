@@ -1,7 +1,7 @@
 import java.util.*;
 public class Graph {
   Map<String, String> graph = new TreeMap<String, String>();
-
+  boolean didFind = false;
   public Graph() {
 
   }
@@ -36,34 +36,35 @@ public class Graph {
 	}
 
   public boolean check(String first, String second, ArrayList<String> been) {
-    System.out.println(first + " " + second);
+    //System.out.println(first + " " + second);
+    //System.out.println(graph.toString());
+
     if(!contains(first)) {
-      System.out.println("you shouldn't be seeing this yet bud" + first);
+      //System.out.println("you shouldn't be seeing this yet bud" + first);
       return false;
     }
     if(been.contains(first)) {
-      System.out.println("you shouldn't be seeing this yet bud" + first);
-      return false;
-    } else {
-        String[] seconds = graph.get(first).split("");
-        for(int i = 0; i < seconds.length; i++) {
-          if(seconds[i].equals(second)){
-            System.out.println("you did it");
-            return true;
-          } else {
-              been.add(first);
-              if(check(seconds[i], second, been)) {
-                System.out.println("you did it");
-                return true;
-              }
-          }
-          if(been.size() == graph.size()) {
-            return false;
-          }
-        }
-      }
+      //System.out.println("you shouldn't be seeing this yet bud" + first);
       return false;
     }
+    String[] seconds = graph.get(first).split("");
+    for(int i = 0; i < seconds.length; i++) {
+      if((seconds[i]).equals(second)){
+        //System.out.println("you did it");
+
+        return true;
+      } else {
+        been.add(first);
+        if(check(seconds[i], second, been)) {
+          //System.out.println("you did it");
+
+          return true;
+        }
+      }
+
+    }
+    return false;
+  }
 
     public String toString() {
       return " ";

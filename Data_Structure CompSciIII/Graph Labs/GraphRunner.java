@@ -3,7 +3,7 @@ import java.io.*;
 import java.lang.System;
 public class GraphRunner{
   public static void main(String[] args) throws FileNotFoundException{
-    Graph bob = new Graph();
+
 
     File file = new File("graph1.dat");
     Scanner f = new Scanner(file);
@@ -12,6 +12,7 @@ public class GraphRunner{
     f.nextLine();
 
     for(int i = 0; i < numTimes; i++) {
+      Graph bob = new Graph();
       String pointy = f.nextLine();
       //System.out.println("this is pointy: " + pointy);
       String whatToConnect = f.nextLine();
