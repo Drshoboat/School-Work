@@ -11,19 +11,30 @@ import static java.lang.System.*;
 
 public class UniquesDupes
 {
+	public UniquesDupes () {
+
+	}
 	public static Set<String> getUniques(String input)
 	{
 		Set<String> uniques = new TreeSet<String>();
+		String[] wordBois = input.split(" ");
+		for(int i = 0; i < wordBois.length; i++) {
+			uniques.add(wordBois[i]);
+		}
 
-		//add code
 
 		return uniques;
 	}
 
 	public static Set<String> getDupes(String input)
 	{
-		//add code
-		
-		return null;
+		String[] wordBois = input.split(" ");
+		Set<String> uniques = new TreeSet<String>();
+		ArrayList<String> dupes = new ArrayList<String>();
+		for(int i = 0; i < wordBois.length; i++) {
+			uniques.add(wordBois[i]);
+		}
+		Set<String> dumb = dupes.addAll(uniques);
+		return dumb;
 	}
 }
