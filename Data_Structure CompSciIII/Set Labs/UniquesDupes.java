@@ -30,11 +30,18 @@ public class UniquesDupes
 	{
 		String[] wordBois = input.split(" ");
 		Set<String> uniques = new TreeSet<String>();
+		Set<String> dumbbo = new TreeSet<String>();
+		ArrayList<String> realdumb = new ArrayList<String>();
 		ArrayList<String> dupes = new ArrayList<String>();
 		for(int i = 0; i < wordBois.length; i++) {
 			uniques.add(wordBois[i]);
+			dupes.add(wordBois[i]);
 		}
-		Set<String> dumb = dupes.addAll(uniques);
-		return dumb;
+		realdumb.addAll(uniques);
+		for(int j = 0; j<realdumb.size();j++) {
+			dupes.remove(realdumb.get(j));
+		}
+		dumbbo.addAll(dupes);
+		return dumbbo;
 	}
 }
