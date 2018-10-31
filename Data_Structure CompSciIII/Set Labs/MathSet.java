@@ -8,46 +8,16 @@ import java.util.TreeSet;
 import java.util.Arrays;
 import static java.lang.System.*;
 
-public class MathSet
-{
-	private Set<Integer> one;
-	private Set<Integer> two;
+public class MathSet {
 
-	public MathSet()
-	{
+	public MathSet() {
+
 	}
 
-	public MathSet(String o, String t)
-	{
-	}
+	public union(String one, String two) {
+		Set<Integer> one = new TreeSet<Integer>();
+		Set<Integer> two = new TreeSet<Intger>();
 
-	public Set<Integer> union()
-	{
-		return null;
-	}
-
-	public Set<Integer> intersection()
-	{
-		return null;
-	}
-
-	public Set<Integer> differenceAMinusB()
-	{
-		return null;
-	}
-
-	public Set<Integer> differenceBMinusA()
-	{
-		return null;
-	}
-	
-	public Set<Integer> symmetricDifference()
-	{		
-		return null;
-	}	
-	
-	public String toString()
-	{
-		return "Set one " + one + "\n" +	"Set two " + two +  "\n";
+		
 	}
 }
