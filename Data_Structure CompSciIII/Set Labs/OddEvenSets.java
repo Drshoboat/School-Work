@@ -11,19 +11,34 @@ import static java.lang.System.*;
 
 public class OddEvenSets
 {
-	private Set<Integer> odds;
-	private Set<Integer> evens;
+	public OddEvenSets() {
 
-	public OddEvenSets()
-	{
 	}
 
-	public OddEvenSets(String line)
-	{
+	public Set<String> getOdds(String input) {
+		Set<String> odd = new TreeSet<String>();
+		String[] numBois = input.split(" ");
+
+		for(int i = 0; i < numBois.length; i++) {
+			int num = Integer.parseInt(numBois[i]);
+			if(num % 2 != 0) {
+				odd.add(numBois[i]);
+			}
+		}
+		return odd;
 	}
 
-	public String toString()
-	{
-		return "ODDS : " + odds + "\nEVENS : " + evens + "\n\n";
+	public Set<String> getEvens(String input) {
+		Set<String> even = new TreeSet<String>();
+		String[] numBois = input.split(" ");
+
+		for(int i = 0; i < numBois.length; i++) {
+			int num = Integer.parseInt(numBois[i]);
+			if(num % 2 == 0) {
+				even.add(numBois[i]);
+			}
+		}
+		return even;
 	}
-}
+
+	}
